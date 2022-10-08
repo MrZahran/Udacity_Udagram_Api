@@ -51,3 +51,13 @@ workflows:
           filters:
             branches:
               only: main
+
+branch-defaults:
+  main:
+    environment: udagram-server-api-dev
+global:
+  application_name: udagram-api
+  default_ec2_keyname: udagram-server-api-dev
+  default_platform: 64bit Amazon Linux 2017.09 v2.6.2 running Ruby 2.4 (Passenger Standalone)
+  default_region: us-east-1
+  sc: git
