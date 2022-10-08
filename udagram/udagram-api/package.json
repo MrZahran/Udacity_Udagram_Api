@@ -14,7 +14,9 @@
     "clean": "del -rf www/ || true",
     "deploy": "npm run build && eb list && eb use udagram-server-api-dev && eb deploy",
     "build": "npm install . && npm run clean && tsc && copy -rf src/config www/config && copy -R .elasticbeanstalk www/.elasticbeanstalk && copy .npmrc www/.npmrc && copy package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "zip": "tar.exe -a -c -f Archive.zip ./www",
+    "zzz": "eb use udagram-server-api-dev --profile default && eb deploy --profile default && eb setenv PORT=3000 AWS_ACCESS_KEY_ID=AKIA4ABJNI6TAGHI7WQ3 AWS_BUCKET=zz-udagram AWS_REGION=us-east-1 SECRET_ACCESS_KEY_ID=Cxmo55Ys1cP+OdDM1/SCuW+VFkV8IvzY8qKwx2qu JWT_SECRET=BLABLABLA POSTGRES_DB=udagram POSTGRES_HOST=localhost POSTGRES_PASSWORD=123123 POSTGRES_PORT=5432 POSTGRES_USERNAME=postgres --profile default"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
