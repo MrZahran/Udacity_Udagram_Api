@@ -18,6 +18,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "7z": "7z a -r ./www/Archive.zip ./www/*",
     "zip": "tar.exe -a -c -f Archive.zip ./www && mv Archive.zip www/Archive.zip ",
+    "comp": "Compress-Archive -Path Archive.zip ./ali",
     "test_deploy": "eb use udagram-server-api-dev --profile default && eb deploy --profile default && eb setenv PORT=5432 AWS_ACCESS_KEY_ID=AKIA4ABJNI6TAGHI7WQ3 AWS_BUCKET=zz-udagram AWS_REGION=us-east-1 SECRET_ACCESS_KEY_ID=Cxmo55Ys1cP+OdDM1/SCuW+VFkV8IvzY8qKwx2qu JWT_SECRET=BLABLABLA POSTGRES_DB=udagram POSTGRES_HOST=database-1.cawsmombqpuf.us-east-1.rds.amazonaws.com POSTGRES_PASSWORD=123123 POSTGRES_PORT=5432 POSTGRES_USERNAME=postgres --profile default"
   },
   "keywords": [],
@@ -26,6 +27,7 @@
   "dependencies": {
     "@types/bcryptjs": "2.4.2",
     "@types/jsonwebtoken": "^8.3.2",
+    "7zip": "^0.0.6",
     "aws-sdk": "^2.429.0",
     "bcryptjs": "2.4.3",
     "body-parser": "^1.18.3",
@@ -35,6 +37,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
+    "node-7z": "^3.0.0",
     "nodemailer": "^6.8.0",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
