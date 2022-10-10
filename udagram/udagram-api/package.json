@@ -13,11 +13,12 @@
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "deploy": "npm run build && eb list && eb use udagram-server-api-dev && eb deploy",
-    "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && npm run 7z",
+    "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && npm run 7z2",
     "build_test": "npm install . && tsc && cp -R src/config www/config && copy -R .elasticbeanstalk www/.elasticbeanstalk && copy .npmrc www/.npmrc && copy package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1",
     "7z": "7z a -r ./www/Archive.zip ./www/*",
     "zip": "cd ./www && tar.exe -a -cf Test.zip * && cd ..",
+    "7z2": "cd ./www && 7z a -r ./Archive.zip ./* && cd ..",
     "comp": "Compress-Archive -Path Archive.zip ./ali",
     "test_deploy": "eb use udagram-server-api-dev --profile default && eb deploy --profile default && eb setenv PORT=5432 AWS_ACCESS_KEY_ID=AKIA4ABJNI6TAGHI7WQ3 AWS_BUCKET=zz-udagram AWS_REGION=us-east-1 SECRET_ACCESS_KEY_ID=Cxmo55Ys1cP+OdDM1/SCuW+VFkV8IvzY8qKwx2qu JWT_SECRET=BLABLABLA POSTGRES_DB=udagram POSTGRES_HOST=database-1.cawsmombqpuf.us-east-1.rds.amazonaws.com POSTGRES_PASSWORD=123123 POSTGRES_PORT=5432 POSTGRES_USERNAME=postgres --profile default"
   },
