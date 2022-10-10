@@ -14,16 +14,16 @@ jobs:
       - checkout
       - run:
           name: Install Front-End Dependencies
-          command: npm run frontend:install
+          command: npm run udagram-frontend:install
       - run:
           name: Install API Dependencies
-          command: npm run api:install
+          command: npm run udagram-api:install
       - run:
           name: Front-End Build
-          command: npm run frontend:build
+          command: npm run udagram-frontend:build
       - run:
           name: API Build
-          command: npm run api:build
+          command: npm run udagram-api:build
 
   deploy:
     docker:
@@ -36,10 +36,10 @@ jobs:
       - checkout
       - run:
           name: Deploy frontend
-          command: npm run frontend:deploy
+          command: npm run udagram-frontend:deploy
       - run:
           name: Deplot api
-          command: npm run api:deploy
+          command: npm run udagram-api:deploy
 workflows:
   Build_Deploy:
     jobs:
